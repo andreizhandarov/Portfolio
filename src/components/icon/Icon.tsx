@@ -1,6 +1,7 @@
 import React from 'react';
 import iconsSprite from '../../assets/icons/code.svg'
 
+
 type IconPropsType = {
     iconId: string
     wight?: string

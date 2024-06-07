@@ -6,10 +6,11 @@ import { Slider } from '../../../components/slider/Slider';
 import { FlexWrapper } from '../../../components/FlexWrapper';
 import { Container } from '../../../components/Container';
 import { S } from '../skills/Skills_Styles';
+import { ST } from './Testimony_Styles';
 
 export const Testimony: React.FC = () => {
     return (
-        <StyledTestimony>
+        <ST.Testimony>
             <Container>
                 <SectionTitle>Testimony</SectionTitle>
                 <FlexWrapper direction={"column"} align={"center"}>
@@ -19,14 +20,6 @@ export const Testimony: React.FC = () => {
                     <Slider/>
                 </FlexWrapper>
             </Container>
-        </StyledTestimony>
+        </ST.Testimony>
     );
 };
-
-const StyledTestimony = styled.section`
-   
-
-    ${S.IconWrapper}{
-        margin: 40px 0 72px;
-    }
-`

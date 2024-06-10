@@ -2,8 +2,8 @@ import styled from "styled-components"
 import { theme } from "../../../styles/Theme"
 
 const Contacts = styled.section`
-   
-`
+    position: relative;
+`;
 
 const Form = styled.form`
     max-width: 540px;
@@ -18,7 +18,8 @@ const Form = styled.form`
         resize: none;
         height: 155px;
     }
-`
+`;
+
 const Field = styled.input`
     width: 100%;
     border: 1px solid ${theme.colors.borderColor};
@@ -39,7 +40,7 @@ const Field = styled.input`
     &:focus-visible{
         outline: 1px solid ${theme.colors.borderColor};
     }
-`
+`;
 
 export const S = {
     Contacts,

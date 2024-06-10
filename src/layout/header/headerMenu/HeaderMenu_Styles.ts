@@ -1,15 +1,8 @@
 import styled, { css } from "styled-components"
 import { theme } from "../../../styles/Theme"
+import { Link } from "react-scroll"
 
 //Menu
-const Link = styled.a`
-    font-family: "Josefin Sans", sans-serif;
-    font-weight: 400;
-    font-size: 30px;
-    text-align: center;
-    color: transparent;
-`
-
 const Mask = styled.span`
     position: absolute;
     top: 0;
@@ -27,11 +20,21 @@ const Mask = styled.span`
             transform: translateY(-50%);
         }
     }
-`
-const MenuItem = styled.li`
-   position: relative;
+`;
 
-   &::before{
+const MenuItem = styled.li`
+    position: relative;
+
+`;
+
+const NavLink = styled(Link)`
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    text-align: center;
+    color: transparent;
+
+    &::before{
     content: "";
     display: inline-block;
     height: 3px;
@@ -43,28 +46,26 @@ const MenuItem = styled.li`
     right: -10px;
     z-index: 1;
     transform: scale(0);
-   }
-
-   &:hover{
-    &::before{
-        transform: scale(1);
     }
 
-    ${Mask}{
-        transform: skewX(12deg) translateX(5px);
-        color: ${theme.colors.font};
+    &:hover, &.active{
+        &::before{
+            transform: scale(1);
+        }
 
-        & + ${Mask}{
-        transform: skewX(12deg) translateX(-5px);
+        ${Mask}{
+            transform: skewX(12deg) translateX(5px);
+            color: ${theme.colors.font};
+
+            & + ${Mask}{
+            transform: skewX(12deg) translateX(-5px);
+            }
         }
     }
-   }
-`
+`;
 
 //Mobile Menu
-const MobileMenu = styled.nav`
-  
-`
+const MobileMenu = styled.nav``;
 
 const MobileMenuPopup = styled.div<{isOpen: boolean}>`
     position: fixed;
@@ -89,7 +90,7 @@ const MobileMenuPopup = styled.div<{isOpen: boolean}>`
         align-items: center;
         flex-direction: column;
     }
-`
+`;
 
 const BurgerButton = styled.button<{isOpen: boolean}>`
     position: fixed;
@@ -140,7 +141,8 @@ const BurgerButton = styled.button<{isOpen: boolean}>`
         `}
         }
     }
-`
+`;
+
 //Desktop Menu
 const DesktopMenu = styled.nav`
     ul{
@@ -148,10 +150,10 @@ const DesktopMenu = styled.nav`
         gap: 30px;
         justify-content: center;
     }
-`
+`;
 
 export const S = {
-    Link,
+    NavLink,
     Mask,
     MenuItem,
     MobileMenu,

@@ -25,7 +25,8 @@ export const GlobalStyle = createGlobalStyle`
 
 a{
     text-decoration: none;
-    color: ${theme.colors.font}
+    color: ${theme.colors.font};
+    cursor: pointer;
 }
 
 ul{

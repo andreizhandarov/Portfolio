@@ -7,8 +7,8 @@ import timerImg from './../../../assets/images/project2.png'
 import { Container } from '../../../components/Container';
 import { TabMenu, TabsStatusType } from './work/tabMenu/TabMenu';
 import {S} from './Works_Styles';
+import { AnimatePresence, motion } from "framer-motion";
 
-//const tabsItems = ["All", "Landing Page", "React", "Spa"];
 const tabsItems: Array<{title: string, status: TabsStatusType }> = [
     {
         title: "All",
@@ -33,13 +33,15 @@ const worksData =[
         title: "Social Network", 
         text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit.", 
         src: socialImg,
-        type: "spa" 
+        type: "spa",
+        id: 1 
     },
     {
         title: "Timer", 
         text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit  ut labore et dolore magna aliqua Ut enim", 
         src: timerImg,
-        type: "react"
+        type: "react",
+        id: 2
     }
 ]
 
@@ -69,11 +71,25 @@ export const Works: React.FC = () => {
                          changeFilterStatus={changeFilterStatus}
                          currentFilterStatus={currentFilterStatus}/>
                 <FlexWrapper justify={"space-between"} align={"flex-start"} wrap={"wrap"}>
-                    {filtredWorks.map((w, index)=>{
-                       return <Work title={w.title} key={index}
-                        text={w.text} 
-                        src={w.src}/>
+                    <AnimatePresence>
+                    {filtredWorks.map((w)=>{
+                       return (
+                        <motion.div style={{ width: "330px", flexGrow: 1, maxWidth: "540px"}}
+                            layout
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
+                            exit={{opacity: 0}}
+                            key={w.id}
+                        >
+                            <Work title={w.title} 
+                                    text={w.text} 
+                                    src={w.src}
+                                    key={w.id}
+                            />
+                        </motion.div>
+                       )
                     })}
+                    </AnimatePresence>
                 </FlexWrapper>
             </Container>
         </S.Works>

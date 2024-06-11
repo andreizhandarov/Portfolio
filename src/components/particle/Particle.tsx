@@ -20,18 +20,9 @@ import { loadSlim } from "tsparticles-slim"; // if you are going to use `loadSli
             init={particlesInit}
             loaded={particlesLoaded}
             options={{
-                //background: {
-                    //color: {
-                        //value: "#0d47a1",
-                    //},
-                //},
                 fpsLimit: 120,
                 interactivity: {
                     events: {
-                        //onClick: {
-                            //enable: true,
-                            //mode: "push",
-                        //},
                         onHover: {
                             enable: true,
                             mode: "repulse",
@@ -53,7 +44,7 @@ import { loadSlim } from "tsparticles-slim"; // if you are going to use `loadSli
                         value: "#ffffff",
                     },
                     links: {
-                        color: "#ffffff",
+                        color: "#7572D5",
                         distance: 150,
                         enable: true,
                         opacity: 0.5,

@@ -14,8 +14,8 @@ const Works = styled.section`
 //Work
 const Work = styled.div`
     background-color: ${theme.colors.secondatyBg};
-    width: 330px;
-    flex-grow: 1;
+    //width: 330px;
+    //flex-grow: 1;
 
     ${Link}{
         padding: 10px 0;
@@ -26,7 +26,7 @@ const Work = styled.div`
     }
 
     @media ${theme.media.desktop}{
-        max-width: 540px;
+        //max-width: 540px;
     }
 `
 const ImageWrapper = styled.div`
@@ -37,7 +37,8 @@ const ImageWrapper = styled.div`
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -30%);
+        transition: ${theme.animations.transition};
 
         &::before{
             width: 100%;
@@ -52,17 +53,20 @@ const ImageWrapper = styled.div`
             right: 0;
             top: 0;
             bottom: 0;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(2px);
             background: rgba(0, 0, 0, 0.3);
             opacity: 0;
+            transition: ${theme.animations.transition};
     }
     
     &:hover{
         &::before{
             opacity: 1;
+        
         }
         ${Button}{
             opacity: 1;
+            transform: translate(-50%, -50%);
         }
     }
 
